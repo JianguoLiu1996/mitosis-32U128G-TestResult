@@ -1,7 +1,7 @@
 #!/bin/bash
 NUMBER=1nd # test times label
-OUTPUTPATH=./redis_test_result_by_memtier_benchmark_FM_OFF_${NUMBER}/ # output path
-CONFIG=FM_OFF # output file label
+OUTPUTPATH=./redis_test_result_by_memtier_benchmark_F_OFF_${NUMBER}/ # output path
+CONFIG=F_OFF # output file label
 CURR_CONFIG=m # pagetable talbe replication cache set sign
 #NR_PTCACHE_PAGES=1100000 # --- 2GB per socket
 NR_PTCACHE_PAGES=1500000 # --- 2GB per socket
@@ -726,7 +726,7 @@ function Sequential82(){
 		--out-file=${OUTPUTPATH}redis_result_Sequential82_${CONFIG}_P5_${NUMBER}_$(date +"%Y%m%d%H%M%S").log
 
 	memtier_benchmark -s ${SERVERADDR} \
-		--test-time=50 \
+		--test-time=redis_test_result_by_memtier_benchmark_FM_OFF_3nd50 \
 		--threads=20 \
 		--clients=5 \
 		--pipeline 1 \
@@ -1025,42 +1025,42 @@ function mainTest(){
 	for ((i=1; i<=3; i++))
 	do
 		NUMBER=${i}nd
-		OUTPUTPATH=./redis_test_result_by_memtier_benchmark_FM_OFF_${NUMBER}/ # output path
+		OUTPUTPATH=./redis_test_result_by_memtier_benchmark_F_OFF_${NUMBER}/ # output path
 		Gauss82
 	done
 
 	for ((i=1; i<=3; i++))
         do
                 NUMBER=${i}nd
-		OUTPUTPATH=./redis_test_result_by_memtier_benchmark_FM_OFF_${NUMBER}/ # output path
+		OUTPUTPATH=./redis_test_result_by_memtier_benchmark_F_OFF_${NUMBER}/ # output path
 		Gauss110
         done
 
 	for ((i=1; i<=3; i++))
         do
                 NUMBER=${i}nd
-		OUTPUTPATH=./redis_test_result_by_memtier_benchmark_FM_OFF_${NUMBER}/ # output path
+		OUTPUTPATH=./redis_test_result_by_memtier_benchmark_F_OFF_${NUMBER}/ # output path
 		Random82
         done
 
 	for ((i=1; i<=3; i++))
         do
                 NUMBER=${i}nd
-		OUTPUTPATH=./redis_test_result_by_memtier_benchmark_FM_OFF_${NUMBER}/ # output path
+		OUTPUTPATH=./redis_test_result_by_memtier_benchmark_F_OFF_${NUMBER}/ # output path
                 Random110
         done
 
 	for ((i=1; i<=3; i++))
         do
                 NUMBER=${i}nd
-		OUTPUTPATH=./redis_test_result_by_memtier_benchmark_FM_OFF_${NUMBER}/ # output path
+		OUTPUTPATH=./redis_test_result_by_memtier_benchmark_F_OFF_${NUMBER}/ # output path
 		Sequential82
         done
 
 	for ((i=1; i<=3; i++))
         do
                 NUMBER=${i}nd
-		OUTPUTPATH=./redis_test_result_by_memtier_benchmark_FM_OFF_${NUMBER}/ # output path
+		OUTPUTPATH=./redis_test_result_by_memtier_benchmark_F_OFF_${NUMBER}/ # output path
 		Sequential110
         done
 }
@@ -1069,7 +1069,7 @@ function mainTest(){
 #setPagetableReplication
 #startRedisWithPageReplication
 #startRedis
-#prepareData
-#mainTest
-clearData
+prepareData
+mainTest
+#clearData
 #stopRedis
