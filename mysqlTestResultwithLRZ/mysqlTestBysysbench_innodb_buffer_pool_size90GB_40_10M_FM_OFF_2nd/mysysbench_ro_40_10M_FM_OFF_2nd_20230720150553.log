@@ -1,0 +1,562 @@
+WARNING: --max-time is deprecated, use --time instead
+sysbench 1.0.20 (using bundled LuaJIT 2.1.0-beta2)
+
+Running the test with following options:
+Number of threads: 200
+Report intermediate results every 3 second(s)
+Initializing random number generator from current time
+
+Forcing shutdown in 1801 seconds
+
+Initializing worker threads...
+
+Threads started!
+
+[ 3s ] thds: 200 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 6s ] thds: 200 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 9s ] thds: 200 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 12s ] thds: 200 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 15s ] thds: 200 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 18s ] thds: 200 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 2 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 2 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 2 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 2 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 2 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 2 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 2 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 2 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 3 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 2 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 2 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 2 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 4 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+[ 21s ] thds: 198 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 24s ] thds: 198 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 27s ] thds: 198 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 30s ] thds: 198 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 33s ] thds: 198 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+(last message repeated 5 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 2 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 2 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 2 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 2 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 2 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 2 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 7 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 2 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 6 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 7 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (113)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+[ 36s ] thds: 198 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 39s ] thds: 198 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 42s ] thds: 198 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 45s ] thds: 198 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 48s ] thds: 198 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 51s ] thds: 198 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 54s ] thds: 198 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 57s ] thds: 198 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 60s ] thds: 198 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+[ 63s ] thds: 198 tps: 0.00 qps: 0.00 (r/w/o: 0.00/0.00/0.00) lat (ms,95%): 0.00 err/s: 0.00 reconn/s: 0.00
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 2 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 2 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 2 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 2 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 2 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 2 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 2 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 2 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 2 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 2 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 3 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+FATAL: unable to connect to MySQL server on host '192.168.1.178', port 3306, aborting...
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 2 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 3 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 2 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 6 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 4 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 2 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
+(last message repeated 1 times)
+FATAL: error 2003: Can't connect to MySQL server on '192.168.1.178' (111)
+(last message repeated 1 times)
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:43: Failed to connect to the database
