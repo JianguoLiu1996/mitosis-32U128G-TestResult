@@ -1,0 +1,20 @@
+WARNING: --max-time is deprecated, use --time instead
+sysbench 1.0.20 (using bundled LuaJIT 2.1.0-beta2)
+
+Running the test with following options:
+Number of threads: 200
+Report intermediate results every 3 second(s)
+Initializing random number generator from current time
+
+Forcing shutdown in 901 seconds
+
+Initializing worker threads...
+
+Threads started!
+
+FATAL: mysql_drv_query() returned error 1146 (Table 'testdb.sbtest38' doesn't exist) for query 'SELECT c FROM sbtest38 WHERE id=5034144'
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:49: db_query() failed
+FATAL: mysql_drv_query() returned error 1146 (Table 'testdb.sbtest39' doesn't exist) for query 'SELECT c FROM sbtest39 WHERE id=5034058'
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:49: db_query() failed
+FATAL: mysql_drv_query() returned error 1146 (Table 'testdb.sbtest37' doesn't exist) for query 'SELECT c FROM sbtest37 WHERE id=4988351'
+FATAL: `thread_run' function failed: ...nload/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua:49: db_query() failed
