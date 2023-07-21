@@ -3,8 +3,8 @@
 CONFIG=$1
 
 #NR_PTCACHE_PAGES=1048576 # --- 4GB per node
-NR_PTCACHE_PAGES=524288 # --- 2GB per node
-#NR_PTCACHE_PAGES=262144 # --- 1GB per node
+#NR_PTCACHE_PAGES=524288 # --- 2GB per node
+NR_PTCACHE_PAGES=262144 # --- 1GB per node
 
 test_and_set_configs() 
 { 

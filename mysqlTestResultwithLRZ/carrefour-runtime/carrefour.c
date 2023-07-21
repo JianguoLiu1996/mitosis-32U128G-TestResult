@@ -801,12 +801,13 @@ static void sig_handler(int signal) {
 #include <sched.h>
 #include <linux/unistd.h>
 #include <sys/mman.h>
-static pid_t gettid(void) {
+static pid_t sys_gettid(void) {
       return syscall(__NR_gettid);
 }
 
+
 void set_affinity(int cpu_id) {
-   int tid = gettid();
+   int tid = sys_gettid();
    cpu_set_t mask;
    CPU_ZERO(&mask);
    CPU_SET(cpu_id, &mask);
@@ -864,9 +865,9 @@ int main(int argc, char**argv) {
    nb_nodes = numa_num_configured_nodes();
    printf("\tnuma nodes = %d \n", nb_nodes);
    nb_nodes = 1;
-   // printf("we should start pgtrpl !!");
-         // sys_set_ptr_start(obj_pid);
-  thread_loop();
+   printf("we should start pgtrpl !!");
+         sys_set_ptr_start(obj_pid);
+//   thread_loop();
 
    return 0;
 }
