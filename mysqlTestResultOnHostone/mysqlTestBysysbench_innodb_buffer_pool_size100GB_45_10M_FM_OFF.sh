@@ -50,6 +50,12 @@ function disableSWAP(){
 	wait
 	echo "SIGN: success disable swap."
 }
+function stopMYSQLandRedis(){
+	sudo service mysql stop
+	sudo service redis stop
+	sudo service mysql status
+	sudo service redis status
+}
 function disableAutoNUMA(){
 	# disable auto numa
 	echo 0 | sudo tee /proc/sys/kernel/numa_balancing > /dev/null
@@ -64,25 +70,21 @@ function disableAutoNUMA(){
 function alltest(){
 	start_time=$(date +%s)  # script start run time
 	
-	#startMysql
-	preparedata
-	
 	#rw test
-	for ((i=1; i<=4; i++))
+	for ((i=1; i<=3; i++))
         do
                 NUMBER=${i}nd
 		OUTPUTPATH=./mysqlTestBysysbench_innodb_buffer_pool_size${INNODB_BUFFER_SIZE}_${CONFIG}_${NUMBER}/
 		testOne
         done
 
-	#cleardata
-
 	end_time=$(date +%s)  # scrip stop run time,(s).
 	# calculate script run time,(s).
 	duration=$((end_time - start_time))
 	echo "Script run time is: $duration (s)"
 }
-disableSWAP
-disableAutoNUMA
-preparedata
-#alltest
+#stopMYSQLandRedis
+#disableSWAP
+#disableAutoNUMA
+#preparedata
+alltest
