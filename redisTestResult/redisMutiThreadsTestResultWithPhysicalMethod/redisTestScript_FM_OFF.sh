@@ -164,6 +164,6 @@ function mainTest(){
 #startRedis
 #prepareData
 #testOne
-mainTest
+#mainTest
 #clearData
-#stopRedis
+stopRedis
