@@ -1,8 +1,7 @@
 #!/bin/bash
 NUMBER=1nd # test times label
 CONFIG=FM_OFF # output file label
-OUTPUTPATH=./redis_test_result_by_memtier_benchmark_${CONFIG}_2nd/ # output path
-#OUTPUTPATH=./ # output path
+OUTPUTPATH=./redis_test_result_by_memtier_benchmark_${CONFIG}_3nd/ # output path
 CURR_CONFIG=m # pagetable talbe replication cache set sign
 NR_PTCACHE_PAGES=262144 # ---1Gb per socket
 SERVERADDR="localhost" # redis server address
@@ -150,7 +149,7 @@ function setPagetableReplication(){
 }
 function mainTest(){
 	# Test three times
-	for ((i=2; i<=3; i++))
+	for ((i=1; i<=3; i++))
 	do
 		NUMBER=${i}nd
 		testOne
@@ -162,8 +161,8 @@ function mainTest(){
 #setPagetableReplication
 #startRedisWithPageReplication
 #startRedis
-#prepareData
+prepareData
 #testOne
-#mainTest
+mainTest
 #clearData
-stopRedis
+#stopRedis
