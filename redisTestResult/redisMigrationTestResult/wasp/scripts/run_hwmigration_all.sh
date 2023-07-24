@@ -8,8 +8,8 @@ ROOT=$(dirname `readlink -f "$0"`)
 
 # BENCHMARKS="memcache redi kdb"
 # BENCHMARKS="memcache"
-# BENCHMARKS="redi"
-BENCHMARKS="kdb"
+BENCHMARKS="redi"
+#BENCHMARKS="kdb"
 # BENCHMARKS="my"
 # CONFIGS="FM F I IM"
 #CONFIGS="F FM"

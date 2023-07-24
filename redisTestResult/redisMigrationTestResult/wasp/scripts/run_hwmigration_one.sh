@@ -335,7 +335,7 @@ launch_benchmark_config()
         REDIS_PID=$(ps aux | grep 'keydb-server' | grep -v grep | tr -s ' '| cut -d ' ' -f 2)
         echo "keydb pid is $REDIS_PID"
     elif [[ $BENCHMARK == "redi" ]];then
-        sudo $CMD_PREFIX redis-server redis.conf
+        sudo $CMD_PREFIX redis-server /etc/redis/redis.conf
         REDIS_PID=$(ps aux | grep 'redis-server' | grep -v grep | tr -s ' '| cut -d ' ' -f 2)
 	echo "redis pid is $REDIS_PID"
     fi  
