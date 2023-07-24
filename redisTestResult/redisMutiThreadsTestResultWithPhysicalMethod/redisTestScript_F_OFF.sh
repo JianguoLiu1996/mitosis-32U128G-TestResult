@@ -1,7 +1,7 @@
 #!/bin/bash
 NUMBER=1nd # test times label
 CONFIG=F_OFF # output file label
-OUTPUTPATH=./redis_test_result_by_memtier_benchmark_${CONFIG}_3nd/ # output path
+OUTPUTPATH=./redis_test_result_by_memtier_benchmark_${CONFIG}_4nd/ # output path
 CURR_CONFIG=m # pagetable talbe replication cache set sign
 NR_PTCACHE_PAGES=262144 # ---1Gb per socket
 SERVERADDR="localhost" # redis server address
@@ -74,7 +74,8 @@ function startRedisWithPageReplication(){
 }
 function stopRedis(){
 	# stop redis
-	sudo sudo /etc/init.d/redis-server stop
+	# sudo sudo /etc/init.d/redis-server stop
+	sudo kill -9 $(ps aux | grep 'redis' | grep -v grep | tr -s ' '| cut -d ' ' -f 2)
 	wait 
 	ps auxf | grep redis-server
 	sleep 5s
@@ -161,8 +162,8 @@ function mainTest(){
 #setPagetableReplication
 #startRedisWithPageReplication
 #startRedis
-prepareData
+#prepareData
 #testOne
-mainTest
-#clearData
+#mainTest
+clearData
 #stopRedis
