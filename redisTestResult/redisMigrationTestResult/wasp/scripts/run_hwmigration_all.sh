@@ -26,8 +26,9 @@ CONFIGS="LPLD RPILD RPILDM"
 # CONFIGS="RPILDM"
 # CONFIGS="LPLD RPILD"
 
+sudo swapoff -a # disable swap
 for round in $(seq 1 3)
-# for round in $(seq 1)
+#for round in $(seq 1)
 do
 	echo "$BENCHMARKS run round $round......"
 	for bench in $BENCHMARKS; do
