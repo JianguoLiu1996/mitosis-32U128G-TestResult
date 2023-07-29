@@ -1,0 +1,4 @@
+monitor_memory_pid: 2961
+monitor_io_pid: 2962
+monitor_network_pid: 2963
+sudo kill 2961 2962 2963

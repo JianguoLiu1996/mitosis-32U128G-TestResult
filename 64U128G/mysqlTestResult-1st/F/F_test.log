@@ -1,0 +1,8 @@
+SIGN: stat one test.
+./mysqlTestBysysbench_innodb_buffer_pool_size100GB_64_10M_FM_OFF.sh: line 31: 61249 Segmentation fault      (core dumped) sysbench /home/liujianguo/Download/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua --mysql-host=${MYSQLADDR} --oltp-tables-count=64 --mysql-user=root --mysql-password=123456 --mysql-port=3306 --db-driver=mysql --oltp-table-size=10000000 --mysql-db=testdb --max-requests=0 --oltp-simple-ranges=0 --oltp-distinct-ranges=0 --oltp-sum-ranges=0 --oltp-order-ranges=0 --max-time=3600 --oltp-read-only=on --threads=400 --report-interval=3 --thread-init-timeout=300 --forced-shutdown=1 run >> "${OUTPUTPATH}mysql_test_result_ro_innodbBufferSize${INNODB_BUFFER_SIZE}_${CONFIG}_${NUMBER}_$(date +"%Y%m%d%H%M%S").log"
+SIGN: test one end.
+SIGN: stat one test.
+SIGN: test one end.
+SIGN: stat one test.
+SIGN: test one end.
+Script run time is: 10986 (s)
