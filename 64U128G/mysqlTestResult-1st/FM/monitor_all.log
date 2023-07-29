@@ -1,0 +1,4 @@
+monitor_memory_pid: 3182
+monitor_io_pid: 3183
+monitor_network_pid: 3184
+sudo kill 3182 3183 3184
