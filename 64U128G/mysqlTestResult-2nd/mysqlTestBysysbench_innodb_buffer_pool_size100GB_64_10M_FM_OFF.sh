@@ -7,11 +7,11 @@ OUTPUTPATH=./
 MYSQLADDR="192.168.1.182"
 function preparedata(){
 	echo "SIGN: prepare data=="
-	sysbench --threads=400 \
+	sysbench /home/liujianguo/Download/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua \
+		--threads=400 \
 		--max-requests=0 \
-		--test=/home/jianguoliu/Download/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua \
 		--oltp-table-size=10000000 \
-		--oltp-tables-count=64 \
+		--oltp-tables-count=45 \
 		--mysql-db=testdb \
 		--db-driver=mysql \
 		--mysql-table-engine=innodb \
@@ -29,7 +29,7 @@ function cleardata(){
 	echo "==SIGN: start cleardata=="
 	sysbench /home/liujianguo/Download/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua \
                 --mysql-host=${MYSQLADDR} \
-                --oltp-tables-count=64 \
+                --oltp-tables-count=45 \
                 --mysql-user=root \
                 --mysql-password=123456 \
                 --mysql-port=3306 \
@@ -42,7 +42,7 @@ function testOne(){
 	echo "SIGN: stat one test."
 	sysbench /home/liujianguo/Download/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua \
 		--mysql-host=${MYSQLADDR} \
-		--oltp-tables-count=64 \
+		--oltp-tables-count=45 \
 		--mysql-user=root \
 		--mysql-password=123456 \
 		--mysql-port=3306 \
@@ -104,9 +104,9 @@ function alltest(){
 	echo "Script run time is: $duration (s)"
 }
 #stopMYSQLandRedis
-#disableSWAP
-#disableAutoNUMA
+disableSWAP
+disableAutoNUMA
 #preparedata
 #testOne
 #alltest
-cleardata
+#cleardata

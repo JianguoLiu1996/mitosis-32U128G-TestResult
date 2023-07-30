@@ -1,0 +1,4 @@
+monitor_memory_pid: 3100
+monitor_io_pid: 3101
+monitor_network_pid: 3102
+sudo kill 3100 3101 3102
