@@ -1,20 +1,19 @@
 #!/bin/bash
 NUMBER=1nd
-CONFIG=64_10M_F_OFF
+CONFIG=45_10M_F_OFF
 INNODB_BUFFER_SIZE=100GB
 # OUTPUTPATH=./mysqlTestBysysbench_innodb_buffer_pool_size${INNODB_BUFFER_SIZE}_${CONFIG}_${NUMBER}/
-OUTPUTPATH=./
+OUTPUTPATH=./F/
 MYSQLADDR="192.168.1.182"
 function preparedata(){
 	echo "SIGN: prepare data=="
-	sysbench /home/liujianguo/Download/sysbench-1.0.11/tests/include/oltp_legacy/oltp.lua \
-		--threads=400 \
+	sysbench /usr/share/sysbench/oltp_write_only.lua \
+		--threads=64 \
 		--max-requests=0 \
-		--oltp-table-size=10000000 \
-		--oltp-tables-count=45 \
+		--table_size=10000000 \
+		--tables=45 \
 		--mysql-db=testdb \
 		--db-driver=mysql \
-		--mysql-table-engine=innodb \
 		--mysql-host=${MYSQLADDR} \
 		--mysql-port=3306 \
 		--mysql-user=root \
@@ -104,9 +103,9 @@ function alltest(){
 	echo "Script run time is: $duration (s)"
 }
 #stopMYSQLandRedis
-disableSWAP
-disableAutoNUMA
-#preparedata
+#disableSWAP
+#disableAutoNUMA
+preparedata
 #testOne
-#alltest
+alltest
 #cleardata
