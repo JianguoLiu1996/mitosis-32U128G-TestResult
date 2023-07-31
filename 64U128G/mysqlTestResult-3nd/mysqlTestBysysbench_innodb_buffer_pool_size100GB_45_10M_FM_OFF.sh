@@ -7,7 +7,7 @@ OUTPUTPATH=./F/
 MYSQLADDR="192.168.1.182"
 function preparedata(){
 	echo "SIGN: prepare data=="
-	sysbench /usr/share/sysbench/oltp_write_only.lua \
+	sysbench /usr/share/sysbench/oltp_write_only.lua \
 		--mysql-host=${MYSQLADDR} \
 		--mysql-port=3306 \
 		--mysql-user=root \
@@ -17,8 +17,7 @@ function preparedata(){
 		--tables=45 \
 		--table_size=10000000 \
 		--report-interval=3 \
-		--threads=64 \
-		--time=120 prepare >> "mysql_test_prepare_innodbBufferSize${INNODB_BUFFER_SIZE}_${CONFIG}_${NUMBER}_$(date +"%Y%m%d%H%M%S").log"
+		--threads=64 prepare >> "${OUTPUTPATH}mysql_test_prepare_innodbBufferSize${INNODB_BUFFER_SIZE}_${CONFIG}_${NUMBER}_$(date +"%Y%m%d%H%M%S").log"
         wait
         sleep 1m
 	echo "SIGN:data ready"
@@ -95,9 +94,9 @@ function alltest(){
 	echo "Script run time is: $duration (s)"
 }
 #stopMYSQLandRedis
-disableSWAP
-disableAutoNUMA
+#disableSWAP
+#disableAutoNUMA
 #preparedata
 #testOne
-#alltest
+alltest
 #cleardata
