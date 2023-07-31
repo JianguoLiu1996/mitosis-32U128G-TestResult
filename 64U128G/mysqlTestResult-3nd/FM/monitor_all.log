@@ -1,0 +1,4 @@
+monitor_memory_pid: 2451
+monitor_io_pid: 2452
+monitor_network_pid: 2453
+sudo kill 2451 2452 2453
