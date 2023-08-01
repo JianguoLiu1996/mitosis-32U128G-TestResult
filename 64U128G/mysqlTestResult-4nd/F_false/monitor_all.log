@@ -1,0 +1,4 @@
+monitor_memory_pid: 2307
+monitor_io_pid: 2308
+monitor_network_pid: 2309
+sudo kill 2307 2308 2309

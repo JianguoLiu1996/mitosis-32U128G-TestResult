@@ -1,0 +1,4 @@
+monitor_memory_pid: 2275
+monitor_io_pid: 2276
+monitor_network_pid: 2277
+sudo kill 2275 2276 2277
