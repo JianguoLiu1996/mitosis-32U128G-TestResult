@@ -1,9 +1,9 @@
 #!/bin/bash
 NUMBER=1nd
-CONFIG=45_10M_FM_OFF
+CONFIG=45_10M_F_OFF
 INNODB_BUFFER_SIZE=100GB
 # OUTPUTPATH=./mysqlTestBysysbench_innodb_buffer_pool_size${INNODB_BUFFER_SIZE}_${CONFIG}_${NUMBER}/
-OUTPUTPATH=./FM/
+OUTPUTPATH=./F/
 #MYSQLADDR="192.168.1.182"
 MYSQLADDR="localhost"
 function preparedata(){
