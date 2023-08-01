@@ -1,0 +1,4 @@
+monitor_memory_pid: 2620
+monitor_io_pid: 2621
+monitor_network_pid: 2622
+sudo kill 2620 2621 2622
