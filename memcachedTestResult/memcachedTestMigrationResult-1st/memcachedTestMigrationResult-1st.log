@@ -1,0 +1,248 @@
+**************************
+***pgtablre test***
+**************************
+memcache run round 1......
+***************memcache : LPLD***************
+qu : config is LPLD
+set page-table to node:
+-6
+CMD_PREFIX=/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 
+memcached pid is 2080
+2114
+2124
+DATA_LOAD is -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000 , BENCH_ARGS is -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 memtier_benchmark -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000
+load data......
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 memtier_benchmark -o memcache-LPLD-1.log -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+begin read......
+first benchmark : 2154
+[0mWaiting for benchmark to be done
+Workload failed: No such file or directory
+Execution Time (seconds): 1485
+memcache : LPLD completed.
+start clean ......
+root      2080  0.0  0.0  13300 11276 pts/0    S    19:51   0:00 bash /home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/scripts/run_hwmigration_one.sh memcache-LPLD-1 240000000 24 LPLD memcache 900
+root      2114  421 23.0 30949136 30233244 ?   Ssl  19:51 104:21 memcached -d -m 62768 -p 6379 -u root
+root      2216  0.0  0.0   4372   568 pts/0    S    20:16   0:00 grep memcached
+kill: (2231): No such process
+./run_hwmigration_all.sh: line 35:  2080 Killed                  bash $ROOT/run_hwmigration_one.sh $bench-$config-$round 240000000 24 $config $bench 900
+***************memcache : RPILD***************
+qu : config is RPILD
+set page-table to node:
+-3
+CMD_PREFIX=/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 
+memcached pid is 2114
+2239
+2283
+DATA_LOAD is -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000 , BENCH_ARGS is -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 memtier_benchmark -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000
+load data......
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 memtier_benchmark -o memcache-RPILD-1.log -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+begin read......
+first benchmark : 2310
+Interference_PID : 2311
+[0mWaiting for benchmark to be done
+Problems finding threads of monitor
+
+ Usage: perf stat [<options>] [<command>]
+
+    -p, --pid <pid>       stat events on existing process id
+    -t, --tid <tid>       stat events on existing thread id
+Execution Time (seconds): 3
+memcache : RPILD completed.
+start clean ......
+root      2239  1.0  0.0  13300 11344 pts/0    S    20:16   0:00 bash /home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/scripts/run_hwmigration_one.sh memcache-RPILD-1 240000000 24 RPILD memcache 900
+root      2347  0.0  0.0   4372   620 pts/0    S    20:16   0:00 grep memcached
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/scripts/run_hwmigration_one.sh: line 307:  2311 Terminated              $NUMACTL -c $INT_NODE -m $INT_NODE $INT_BIN > /dev/null 2>&1
+kill: (2348): No such process
+./run_hwmigration_all.sh: line 35:  2239 Killed                  bash $ROOT/run_hwmigration_one.sh $bench-$config-$round 240000000 24 $config $bench 900
+***************memcache : RPILDM***************
+qu : config is RPILDM
+M set page-table to node:
+0
+CMD_PREFIX=/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3  --pgtablerepl=3
+memcached pid is 2358
+2397
+2407
+DATA_LOAD is -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000 , BENCH_ARGS is -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 memtier_benchmark -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000
+load data......
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 memtier_benchmark -o memcache-RPILDM-1.log -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+begin read......
+first benchmark : 2445
+Interference_PID : 2446
+[0mWaiting for benchmark to be done
+Workload failed: No such file or directory
+Execution Time (seconds): 1485
+memcache : RPILDM completed.
+start clean ......
+root      2358  0.0  0.0  13300 11376 pts/0    S    20:16   0:00 bash /home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/scripts/run_hwmigration_one.sh memcache-RPILDM-1 240000000 24 RPILDM memcache 900
+root      2397  418 23.0 30962580 30231900 ?   Ssl  20:16 103:24 memcached -d -m 62768 -p 6379 -u root
+root      2485  0.0  0.0   4372   672 pts/0    S    20:41   0:00 grep memcached
+kill: (2486): No such process
+./run_hwmigration_all.sh: line 35:  2358 Killed                  bash $ROOT/run_hwmigration_one.sh $bench-$config-$round 240000000 24 $config $bench 900
+memcache run round 2......
+***************memcache : LPLD***************
+qu : config is LPLD
+set page-table to node:
+-6
+CMD_PREFIX=/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 
+memcached pid is 2397
+2494
+2538
+DATA_LOAD is -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000 , BENCH_ARGS is -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 memtier_benchmark -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000
+load data......
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 memtier_benchmark -o memcache-LPLD-2.log -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+begin read......
+first benchmark : 2565
+[0mWaiting for benchmark to be done
+Problems finding threads of monitor
+
+ Usage: perf stat [<options>] [<command>]
+
+    -p, --pid <pid>       stat events on existing process id
+    -t, --tid <tid>       stat events on existing thread id
+Execution Time (seconds): 6
+memcache : LPLD completed.
+start clean ......
+root      2494  0.3  0.0  13300 11252 pts/0    S    20:41   0:00 bash /home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/scripts/run_hwmigration_one.sh memcache-LPLD-2 240000000 24 LPLD memcache 900
+root      2592  0.0  0.0   4372   584 pts/0    S    20:41   0:00 grep memcached
+kill: (2594): No such process
+./run_hwmigration_all.sh: line 35:  2494 Killed                  bash $ROOT/run_hwmigration_one.sh $bench-$config-$round 240000000 24 $config $bench 900
+***************memcache : RPILD***************
+qu : config is RPILD
+set page-table to node:
+-3
+CMD_PREFIX=/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 
+memcached pid is 2602
+2636
+2646
+DATA_LOAD is -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000 , BENCH_ARGS is -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 memtier_benchmark -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000
+load data......
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 memtier_benchmark -o memcache-RPILD-2.log -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+begin read......
+first benchmark : 2675
+Interference_PID : 2676
+[0mWaiting for benchmark to be done
+Workload failed: No such file or directory
+Execution Time (seconds): 1527
+memcache : RPILD completed.
+start clean ......
+root      2602  0.0  0.0  13300 11404 pts/0    S    20:41   0:00 bash /home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/scripts/run_hwmigration_one.sh memcache-RPILD-2 240000000 24 RPILD memcache 900
+root      2636  424 23.0 30953296 30232924 ?   Ssl  20:41 107:56 memcached -d -m 62768 -p 6379 -u root
+root      2713  0.0  0.0   4372   588 pts/0    S    21:06   0:00 grep memcached
+kill: (2714): No such process
+./run_hwmigration_all.sh: line 35:  2602 Killed                  bash $ROOT/run_hwmigration_one.sh $bench-$config-$round 240000000 24 $config $bench 900
+***************memcache : RPILDM***************
+qu : config is RPILDM
+M set page-table to node:
+0
+CMD_PREFIX=/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3  --pgtablerepl=3
+memcached pid is 2636
+2722
+2769
+DATA_LOAD is -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000 , BENCH_ARGS is -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 memtier_benchmark -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000
+load data......
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 memtier_benchmark -o memcache-RPILDM-2.log -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+begin read......
+first benchmark : 2796
+Interference_PID : 2797
+[0mWaiting for benchmark to be done
+Problems finding threads of monitor
+
+ Usage: perf stat [<options>] [<command>]
+
+    -p, --pid <pid>       stat events on existing process id
+    -t, --tid <tid>       stat events on existing thread id
+Execution Time (seconds): 4
+memcache : RPILDM completed.
+start clean ......
+root      2722  0.5  0.0  13300 11228 pts/0    S    21:06   0:00 bash /home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/scripts/run_hwmigration_one.sh memcache-RPILDM-2 240000000 24 RPILDM memcache 900
+root      2831  0.0  0.0   4372   564 pts/0    S    21:07   0:00 grep memcached
+kill: (2832): No such process
+./run_hwmigration_all.sh: line 35:  2722 Killed                  bash $ROOT/run_hwmigration_one.sh $bench-$config-$round 240000000 24 $config $bench 900
+memcache run round 3......
+***************memcache : LPLD***************
+qu : config is LPLD
+set page-table to node:
+-6
+CMD_PREFIX=/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 
+memcached pid is 2840
+2874
+2883
+DATA_LOAD is -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000 , BENCH_ARGS is -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 memtier_benchmark -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000
+load data......
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 memtier_benchmark -o memcache-LPLD-3.log -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+begin read......
+first benchmark : 2912
+[0mWaiting for benchmark to be done
+Workload failed: No such file or directory
+Execution Time (seconds): 1469
+memcache : LPLD completed.
+start clean ......
+root      2840  0.0  0.0  13300 11324 pts/0    S    21:07   0:00 bash /home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/scripts/run_hwmigration_one.sh memcache-LPLD-3 240000000 24 LPLD memcache 900
+root      2874  423 23.0 31020692 30234216 ?   Ssl  21:07 103:36 memcached -d -m 62768 -p 6379 -u root
+root      2945  0.0  0.0   4372   564 pts/0    S    21:31   0:00 grep memcached
+kill: (2946): No such process
+./run_hwmigration_all.sh: line 35:  2840 Killed                  bash $ROOT/run_hwmigration_one.sh $bench-$config-$round 240000000 24 $config $bench 900
+***************memcache : RPILD***************
+qu : config is RPILD
+set page-table to node:
+-3
+CMD_PREFIX=/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 
+memcached pid is 2874
+2954
+2998
+DATA_LOAD is -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000 , BENCH_ARGS is -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 memtier_benchmark -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000
+load data......
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 memtier_benchmark -o memcache-RPILD-3.log -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+begin read......
+first benchmark : 3025
+Interference_PID : 3026
+[0mWaiting for benchmark to be done
+Problems finding threads of monitor
+
+ Usage: perf stat [<options>] [<command>]
+
+    -p, --pid <pid>       stat events on existing process id
+    -t, --tid <tid>       stat events on existing thread id
+Execution Time (seconds): 3
+memcache : RPILD completed.
+start clean ......
+root      2954  0.6  0.0  13300 11256 pts/0    S    21:31   0:00 bash /home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/scripts/run_hwmigration_one.sh memcache-RPILD-3 240000000 24 RPILD memcache 900
+root      3060  0.0  0.0   4372   672 pts/0    S    21:31   0:00 grep memcached
+kill: (3061): No such process
+./run_hwmigration_all.sh: line 35:  2954 Killed                  bash $ROOT/run_hwmigration_one.sh $bench-$config-$round 240000000 24 $config $bench 900
+***************memcache : RPILDM***************
+qu : config is RPILDM
+M set page-table to node:
+0
+CMD_PREFIX=/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3  --pgtablerepl=3
+memcached pid is 3069
+3106
+3116
+DATA_LOAD is -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000 , BENCH_ARGS is -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 memtier_benchmark -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000
+load data......
+/home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/bin/numactl -m 3 -c 3 memtier_benchmark -o memcache-RPILDM-3.log -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+begin read......
+first benchmark : 3145
+Interference_PID : 3146
+[0mWaiting for benchmark to be done
+Workload failed: No such file or directory
+Execution Time (seconds): 1477
+memcache : RPILDM completed.
+start clean ......
+root      3069  0.0  0.0  13300 10972 pts/0    S    21:31   0:00 bash /home/jianguoliu/mitosis-32U128G-TestResult/memcachedTestResult/wasp/scripts/run_hwmigration_one.sh memcache-RPILDM-3 240000000 24 RPILDM memcache 900
+root      3106  423 23.0 30953316 30230444 ?   Ssl  21:31 104:04 memcached -d -m 62768 -p 6379 -u root
+root      3188  0.0  0.0   4372   604 pts/0    S    21:56   0:00 grep memcached
+kill: (3189): No such process
+./run_hwmigration_all.sh: line 35:  3069 Killed                  bash $ROOT/run_hwmigration_one.sh $bench-$config-$round 240000000 24 $config $bench 900
+**************************
+*** test  end ***
+**************************
