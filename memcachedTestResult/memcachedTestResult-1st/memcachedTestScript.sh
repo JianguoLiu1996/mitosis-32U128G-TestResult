@@ -1,8 +1,10 @@
 #!/bin/bash
 NUMBER=1nd # test times label
-CONFIG=FM_OFF # output file label
+#CONFIG=FM_OFF # output file label
+CONFIG=F_OFF # output file label
 #OUTPUTPATH="./memcached_test_result_by_memtier_benchmark_${CONFIG}_3nd/" # output path
-OUTPUTPATH="./FM/" # output path
+#OUTPUTPATH="./FM/" # output path
+OUTPUTPATH="./F/" # output path
 CURR_CONFIG=m # pagetable talbe replication cache set sign
 NR_PTCACHE_PAGES=262144 # ---1Gb per socket
 SERVERADDR="localhost" # redis server address
