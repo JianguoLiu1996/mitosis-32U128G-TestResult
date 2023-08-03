@@ -21,7 +21,8 @@ Memcached_BENCH_ARGS="-p 6379 -P memcache_text -t 20 -c 5 -R --randomize --disti
 Memcached_DATA_LOAD="-p 6379 -P memcache_text -t 20 -c 5 -n $REQUEST -R --randomize --distinct-client-seed -d $DATA_SIZE --key-maximum=$KEY --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000" 
 # BENCH_ARGS="-t 20 -c 5 -R --randomize --distinct-client-seed -d 64 --key-maximum=160000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000" #��ȡ���ݲ���
 # DATA_LOAD="-t 20 -c 5 -n 1600000 -R --randomize --distinct-client-seed -d 64 --key-maximum=160000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000" #װ�����ݲ���
-NR_PTCACHE_PAGES=262144 # --- 1GB per node
+#NR_PTCACHE_PAGES=262144 # --- 1GB per node
+NR_PTCACHE_PAGES=131072 # --- 0.5GB per node
 
 BENCHMARK=$5
 CONFIG=$4
