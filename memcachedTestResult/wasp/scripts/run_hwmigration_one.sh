@@ -327,7 +327,8 @@ launch_benchmark_config()
     if [[ $BENCHMARK == "memcache" ]];then
         # sudo $CMD_PREFIX memcached -d -m 62768 -p 6379 -t 24 -u root
         sudo $CMD_PREFIX memcached -d -m 32768 -p 6379 -u root
-        REDIS_PID=$(ps aux | grep 'memcached' | grep -v grep | tr -s ' '| cut -d ' ' -f 2)
+        #REDIS_PID=$(ps aux | grep 'memcached' | grep -v grep | tr -s ' '| cut -d ' ' -f 2)
+        REDIS_PID=$(ps aux | grep 'memcached' | grep -v grep | grep -v bash | tr -s ' '| cut -d ' ' -f 2)
 	echo "memcached pid is $REDIS_PID"
         DATA_LOAD=$Memcached_DATA_LOAD
         BENCH_ARGS=$Memcached_BENCH_ARGS
@@ -367,7 +368,7 @@ launch_benchmark_config()
 	LAUNCH_CMD="$CMD_PREFIX $BENCHPATH  $DATA_LOAD"
 #     LAUNCH_CMD="$BENCHPATH  $DATA_LOAD"
 	echo $LAUNCH_CMD #>> $OUTFILE
-    echo "load data......"
+	echo "load data......"
 	$LAUNCH_CMD > /dev/null 2>&1 &
 	BENCHMARK_PID=$!
 
@@ -381,7 +382,8 @@ launch_benchmark_config()
         LAUNCH_CMD="$CMD_PREFIX $BENCHPATH -o $NAME.log $BENCH_ARGS"
 	# LAUNCH_CMD="$BENCHPATH -o $NAME.log $BENCH_ARGS"
 	echo $LAUNCH_CMD
-    echo "begin read......"
+	echo "begin read......"
+
 	$LAUNCH_CMD > /dev/null 2>&1 &
 	BENCHMARK_PID=$!
 	echo "first benchmark : $BENCHMARK_PID"
@@ -394,15 +396,13 @@ launch_benchmark_config()
     # icollector_pid=$!
 
 	#$PERF stat -x, -o $OUTFILE --append -e $PERF_EVENTS -p $REDIS_PID &
-	echo "start perf"
-	sudo $PERF stat -a -x, -o perf-$NAME.log --append -e $PERF_EVENTS -p $REDIS_PID &
+	$PERF stat -a -x, -o perf-$NAME.log --append -e $PERF_EVENTS -p $REDIS_PID &
 	PERF_PID=$!
-	echo "perf start"
 
 	echo -e "\e[0mWaiting for benchmark to be done"
+	wait $BENCHMARK_PID
 	
-    wait $BENCHMARK_PID
-    # kill $icollector_pid
+	# kill $icollector_pid
 	DURATION=$SECONDS
 
 	#sudo kill -9 $REDIS_PID
@@ -423,7 +423,9 @@ sudo sh -c "echo 3 > /proc/sys/vm/drop_caches"
 
 if [[ $BENCHMARK == "memcache" ]];then
     ps axu|grep memcached
-    sudo kill -9 $(ps aux | grep 'memcached' | grep -v grep | tr -s ' '| cut -d ' ' -f 2)
+    #sudo kill -9 $(ps aux | grep 'memcached' | grep -v grep | tr -s ' '| cut -d ' ' -f 2)
+    #REDIS_PID=$(ps aux | grep 'memcached' | grep -v grep | grep -v bash | tr -s ' '| cut -d ' ' -f 2)
+    sudo kill "$REDIS_PID"
 elif [[ $BENCHMARK == "kdb" ]];then
     ps axu|grep keydb-server
     sudo kill -9 $(ps aux | grep 'keydb-server' | grep -v grep | tr -s ' '| cut -d ' ' -f 2)
