@@ -326,7 +326,7 @@ launch_benchmark_config()
     REDIS_PID=0
     if [[ $BENCHMARK == "memcache" ]];then
         # sudo $CMD_PREFIX memcached -d -m 62768 -p 6379 -t 24 -u root
-        sudo $CMD_PREFIX memcached -d -m 62768 -p 6379 -u root
+        sudo $CMD_PREFIX memcached -d -m 32768 -p 6379 -u root
         REDIS_PID=$(ps aux | grep 'memcached' | grep -v grep | tr -s ' '| cut -d ' ' -f 2)
 	echo "memcached pid is $REDIS_PID"
         DATA_LOAD=$Memcached_DATA_LOAD
@@ -394,8 +394,10 @@ launch_benchmark_config()
     # icollector_pid=$!
 
 	#$PERF stat -x, -o $OUTFILE --append -e $PERF_EVENTS -p $REDIS_PID &
-	$PERF stat -a -x, -o perf-$NAME.log --append -e $PERF_EVENTS -p $REDIS_PID &
+	echo "start perf"
+	sudo $PERF stat -a -x, -o perf-$NAME.log --append -e $PERF_EVENTS -p $REDIS_PID &
 	PERF_PID=$!
+	echo "perf start"
 
 	echo -e "\e[0mWaiting for benchmark to be done"
 	
