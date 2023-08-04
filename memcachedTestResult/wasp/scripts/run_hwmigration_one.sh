@@ -95,9 +95,12 @@ prepare_basic_config_params()
 	# fi
 
         if [ $1 == "LPLD" ]; then
-                CPU_NODE=3
-                DATA_NODE=3
-                PT_NODE=-6
+                #CPU_NODE=3
+                #DATA_NODE=3
+                #PT_NODE=-6
+                CPU_NODE=0
+                DATA_NODE=0
+                PT_NODE=-3
 		echo "qu : config is LPLD"
         fi
 
