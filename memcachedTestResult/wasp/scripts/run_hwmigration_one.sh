@@ -319,7 +319,8 @@ launch_benchmark_config()
 #     NODE_MAX=$(echo ${NODESTR##*: } | cut -d " " -f 1)
 #     NODE_MAX=`expr $NODE_MAX - 1`
     if [[ $LAST_CHAR == "M" ]]; then
-        CMD_PREFIX+=" --pgtablerepl=3"
+        #CMD_PREFIX+=" --pgtablerepl=3"
+        CMD_PREFIX+=" --pgtablerepl=0"
     fi
     echo "CMD_PREFIX=$CMD_PREFIX"
     
