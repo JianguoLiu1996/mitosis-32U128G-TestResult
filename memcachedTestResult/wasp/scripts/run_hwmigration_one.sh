@@ -334,7 +334,7 @@ launch_benchmark_config()
     REDIS_PID=0
     if [[ $BENCHMARK == "memcache" ]];then
         # sudo $CMD_PREFIX memcached -d -m 62768 -p 6379 -t 24 -u root
-        sudo $CMD_PREFIX memcached -d -m 32768 -p 6379 -u root -t 32
+        sudo $CMD_PREFIX memcached -d -m 32768 -p 6379 -u root -t 8
         #REDIS_PID=$(ps aux | grep 'memcached' | grep -v grep | tr -s ' '| cut -d ' ' -f 2)
         REDIS_PID=$(ps aux | grep 'memcached' | grep -v grep | grep -v bash | tr -s ' '| cut -d ' ' -f 2)
 	echo "memcached pid is $REDIS_PID"
