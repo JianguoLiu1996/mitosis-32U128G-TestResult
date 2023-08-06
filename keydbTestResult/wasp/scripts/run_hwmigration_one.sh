@@ -17,6 +17,7 @@ PERF_EVENTS="bus-cycles,cache-misses,cache-references,dTLB-load-misses,dTLB-load
 
 BENCH_ARGS="-t 20 -c 5 -R --randomize --distinct-client-seed -d $DATA_SIZE --key-maximum=$KEY --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=$TIME --pipeline=10000" 
 DATA_LOAD="-t 20 -c 5 -n $REQUEST -R --randomize --distinct-client-seed -d $DATA_SIZE --key-maximum=$KEY --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000" 
+#memcached
 Memcached_BENCH_ARGS="-p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d $DATA_SIZE --key-maximum=$KEY --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=$TIME --pipeline=10000" 
 Memcached_DATA_LOAD="-p 6379 -P memcache_text -t 20 -c 5 -n $REQUEST -R --randomize --distinct-client-seed -d $DATA_SIZE --key-maximum=$KEY --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000" 
 # BENCH_ARGS="-t 20 -c 5 -R --randomize --distinct-client-seed -d 64 --key-maximum=160000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000" #��ȡ���ݲ���
@@ -326,7 +327,7 @@ launch_benchmark_config()
 #     NODE_MAX=`expr $NODE_MAX - 1`
     if [[ $LAST_CHAR == "M" ]]; then
         CMD_PREFIX+=" --pgtablerepl=3"
-        # CMD_PREFIX+=" --pgtablerepl=0" # NoCross-nodeLossExperiment
+        #CMD_PREFIX+=" --pgtablerepl=0" # NoCross-nodeLossExperiment
     fi
     echo "CMD_PREFIX=$CMD_PREFIX"
     
