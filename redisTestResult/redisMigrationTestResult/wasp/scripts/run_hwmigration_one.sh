@@ -97,6 +97,11 @@ prepare_basic_config_params()
                 CPU_NODE=3
                 DATA_NODE=3
                 PT_NODE=-6
+
+		# NoCross-nodeLossExperiment
+                #CPU_NODE=0
+                #DATA_NODE=0
+                #PT_NODE=-3
 		echo "qu : config is LPLD"
         fi
 
@@ -319,6 +324,7 @@ launch_benchmark_config()
 #     NODE_MAX=`expr $NODE_MAX - 1`
     if [[ $LAST_CHAR == "M" ]]; then
         CMD_PREFIX+=" --pgtablerepl=3"
+        #CMD_PREFIX+=" --pgtablerepl=0" # NoCross-nodeLossExperiment
     fi
     echo "CMD_PREFIX=$CMD_PREFIX"
     
