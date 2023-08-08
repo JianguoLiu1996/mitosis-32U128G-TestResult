@@ -65,7 +65,7 @@ function clearData(){
 
 function startRedis(){
 	# start memcached
-	memcached -d -m 102400 -p 6379 -u root -t 32 -l $SERVERADDR
+	sudo memcached -d -m 102400 -p 6379 -u root -t 32 -l $SERVERADDR
 	wait 
 	ps auxf | grep memcached
 	sleep 1s
