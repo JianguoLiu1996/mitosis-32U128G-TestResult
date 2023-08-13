@@ -189,13 +189,13 @@ function mainTest(){
 	done
 }
 #stopMySQL
-disableAutoNUMA
-disableSWAP
+#disableAutoNUMA
+#disableSWAP
 #setPagetableReplication
 #startRedisWithPageReplication
-startRedis
+#startRedis
 #prepareData
 #mainTest
 #clearData
-#stopRedis
+stopRedis
 #clearPgReplication

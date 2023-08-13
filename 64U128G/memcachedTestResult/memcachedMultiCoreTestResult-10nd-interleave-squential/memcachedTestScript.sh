@@ -3,7 +3,7 @@ NUMBER=1nd # test times label
 #CONFIG=FM_OFF # output file label
 CONFIG=F_OFF # output file label
 #OUTPUTPATH="./FM/" # output path
-OUTPUTPATH="./F-3nd/" # output path
+OUTPUTPATH="./F-1st/" # output path
 CURR_CONFIG=m # pagetable talbe replication cache set sign
 NR_PTCACHE_PAGES=262144 # ---1Gb per socket
 SERVERADDR="localhost" # redis server address
@@ -35,21 +35,36 @@ function testOne(){
 		-P memcache_text \
 		-t 20 \
 		-c 5 \
-		--test-time=1200 \
-		-R \
-		--randomize \
-		--distinct-client-seed \
+		--test-time=600 \
 		-d 24 \
 		--key-maximum=800000000 \
 		--key-minimum=1 \
-		--ratio=0:1 \
-		--key-pattern=R:R \
-		-o ${OUTPUTPATH}memcached_test_result_${CONFIG}_${NUMBER}_$(date +"%Y%m%d%H%M%S").log \
-		--hide-histogram \
+		--ratio=2:8 \
+		--key-pattern=S:S \
+		-o ${OUTPUTPATH}memcached_test_result_sequential82_${CONFIG}_${NUMBER}_$(date +"%Y%m%d%H%M%S").log \
 		--pipeline=10000
 	wait
 	sleep 1m
 	echo "===Gauss82 is test end==="
+}
+function randomTest(){
+	echo "===begin test for random82==="
+        memtier_benchmark -p 6379 \
+                -P memcache_text \
+                -t 20 \
+                -c 5 \
+                --test-time=600 \
+                -d 24 \
+                --key-maximum=800000000 \
+                --key-minimum=1 \
+                --ratio=2:8 \
+		--distinct-client-seed \
+		--key-pattern=R:R \
+                -o ${OUTPUTPATH}memcached_test_result_random82_${CONFIG}_${NUMBER}_$(date +"%Y%m%d%H%M%S").log \
+                --pipeline=10000
+        wait
+        sleep 1m
+        echo "===random82 is test end==="
 }
 
 function clearData(){
@@ -176,20 +191,22 @@ function clearPgReplication(){
 
 function mainTest(){
 	# Test three times
-	for ((i=1; i<=3; i++))
+	for ((i=1; i<=2; i++))
 	do
 		NUMBER=${i}nd
 		testOne
 	done
 }
 #stopMySQL
-#disableAutoNUMA
-#disableSWAP
+disableAutoNUMA
+disableSWAP
 #setPagetableReplication
 #startRedisWithPageReplication
-#startRedis
-#prepareData
-#mainTest
+startRedis
+prepareData
+mainTest
 #clearData
 #stopRedis
 #clearPgReplication
+randomTest
+randomTest
