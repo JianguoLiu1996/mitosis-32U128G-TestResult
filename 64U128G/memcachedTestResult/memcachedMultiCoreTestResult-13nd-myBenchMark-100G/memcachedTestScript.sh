@@ -3,7 +3,7 @@ NUMBER=1nd # test times label
 #CONFIG=FM_OFF # output file label
 CONFIG=F_OFF # output file label
 #OUTPUTPATH="./FM/" # output path
-OUTPUTPATH="./F-1st/" # output path
+OUTPUTPATH="./F-2nd/" # output path
 CURR_CONFIG=m # pagetable talbe replication cache set sign
 NR_PTCACHE_PAGES=131072 # ---1Gb per socket
 SERVERADDR="localhost" # redis server address
@@ -214,14 +214,14 @@ function mainTest(){
 	done
 }
 #stopMySQL
-disableAutoNUMA
-disableSWAP
+#disableAutoNUMA
+#disableSWAP
 #setPagetableReplication
 #startRedisWithPageReplication
-startRedis
-prepareData
-mainTest
+#startRedis
+#prepareData
+#mainTest
 #testOne
 #clearData
-#stopRedis
+stopRedis
 #clearPgReplication
