@@ -3,7 +3,7 @@ NUMBER=1nd # test times label
 #CONFIG=FM_OFF # output file label
 CONFIG=F_OFF # output file label
 #OUTPUTPATH="./FM/" # output path
-OUTPUTPATH="./F-2nd/" # output path
+OUTPUTPATH="./F-3nd/" # output path
 CURR_CONFIG=m # pagetable talbe replication cache set sign
 NR_PTCACHE_PAGES=131072 # ---1Gb per socket
 SERVERADDR="localhost" # redis server address
@@ -61,15 +61,15 @@ function clearData(){
 
 function startRedis(){
 	# start memcached
-	#sudo numactl -i 0-3 memcached -d -m 122880 -p 6379 -u root -t 64
-	sudo memcached -d -m 122880 -p 6379 -u root -t 64
+	sudo numactl -i 0-3 memcached -d -m 122880 -p 6379 -u root -t 64
+	#sudo memcached -d -m 122880 -p 6379 -u root -t 64
 	wait 
 	ps auxf | grep memcached
 	sleep 1s
 	echo "SIGN: success start redis"
 }
 function startRedisWithPageReplication(){
-        sudo numactl -r 0-3 memcached -d -m 122880 -p 6379 -u root -t 64
+        sudo numactl -i 0-3 -r 0-3 memcached -d -m 122880 -p 6379 -u root -t 64
 	wait 
 	ps auxf | grep memcached
 	sleep 1s
@@ -188,8 +188,8 @@ disableSWAP
 #startRedisWithPageReplication
 startRedis
 prepareData
-mainTest
-#testOne
+#mainTest
+testOne
 #clearData
 #stopRedis
 #clearPgReplication
