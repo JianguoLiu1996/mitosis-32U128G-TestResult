@@ -1,24 +1,25 @@
 #!/bin/bash
 NUMBER=1nd # test times label
 #CONFIG=FM_OFF # output file label
-CONFIG=F_OFF # output file label
+CONFIG=FM_OFF # output file label
 #OUTPUTPATH="./FM/" # output path
-OUTPUTPATH="./F-1st/" # output path
+OUTPUTPATH="./FM/" # output path
 CURR_CONFIG=m # pagetable talbe replication cache set sign
 NR_PTCACHE_PAGES=131072 # ---1Gb per socket
-SERVERADDR="localhost" # redis server address
+SERVERADDR="192.168.1.182" # redis server address
 function prepareData(){
 	echo "===begin prepare data for test==="
 	memtier_benchmark -p 6379 \
+		-s $SERVERADDR
 		-P memcache_text \
 		-t 20 \
 		-c 5 \
-		-n 10000000 \
+		-n 8000000 \
 		-R \
 		--randomize \
 		--distinct-client-seed \
 		-d 24 \
-		--key-maximum=1000000000 \
+		--key-maximum=800000000 \
 		--key-minimum=1 \
 		--ratio=1:0 \
 		--key-pattern=P:P \
@@ -32,15 +33,16 @@ function prepareData(){
 function testOne(){
 	echo "===begin test for testOne==="
 	memtier_benchmark -p 6379 \
+		-s $SERVERADDR
 		-P memcache_text \
 		-t 20 \
 		-c 5 \
-		--test-time=900 \
+		--test-time=1200 \
 		-R \
 		--randomize \
 		--distinct-client-seed \
 		-d 24 \
-		--key-maximum=1000000000 \
+		--key-maximum=800000000 \
 		--key-minimum=1 \
 		--ratio=0:1 \
 		--key-pattern=R:R \
@@ -63,14 +65,14 @@ function clearData(){
 
 function startRedis(){
 	# start memcached
-	sudo numactl -i 0-3 memcached -d -m 122880 -p 6379 -u root -t 64
+	sudo memcached -d -m 122880 -p 6379 -u root -t 64 -l $SERVERADDR
 	wait 
 	ps auxf | grep memcached
 	sleep 1s
 	echo "SIGN: success start redis"
 }
 function startRedisWithPageReplication(){
-        sudo numactl -i 0-3 -r 0-3 memcached -d -m 122880 -p 6379 -u root -t 64
+        sudo numactl -r 0-3 memcached -d -m 122880 -p 6379 -u root -t 64 -l $SERVERADDR
 	wait 
 	ps auxf | grep memcached
 	sleep 1s
@@ -81,11 +83,15 @@ function stopRedis(){
 	sudo service memcached stop
 	wait
 	sleep 1s
+
 	sudo kill -9 $(ps aux | grep 'memtier_benchmark' | grep -v grep | tr -s ' '| cut -d ' ' -f 2)
+	#sudo kill -9 $(ps aux | grep 'redis' | grep -v grep | tr -s ' '| cut -d ' ' -f 2)
 	sudo kill -9 $(ps aux | grep 'memcached' | grep -v grep | tr -s ' '| cut -d ' ' -f 2)
+	#sudo kill -9 $(ps aux | grep 'keydb' | grep -v grep | tr -s ' '| cut -d ' ' -f 2)
 	sleep 1s
-	#ps aux | grep memcached
-	sudo service memcached status
+
+	ps aux | grep memcached
+	#sudo service memcached status
 	echo "SIGN: success stop redis"
 }
 function stopMySQL(){
@@ -188,8 +194,8 @@ disableSWAP
 #setPagetableReplication
 #startRedisWithPageReplication
 startRedis
-prepareData
-mainTest
+#prepareData
+#mainTest
 #clearData
 #stopRedis
 #clearPgReplication

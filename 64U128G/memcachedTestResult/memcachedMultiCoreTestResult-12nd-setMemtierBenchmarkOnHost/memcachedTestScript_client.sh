@@ -1,33 +1,109 @@
 #!/bin/bash
+NUMBER=1nd # test times label
+#CONFIG=FM_OFF # output file label
+CONFIG=F_OFF # output file label
+#OUTPUTPATH="./FM/" # output path
+OUTPUTPATH="./F-1st/" # output path
 CURR_CONFIG=m # pagetable talbe replication cache set sign
 NR_PTCACHE_PAGES=262144 # ---1Gb per socket
-
 SERVERADDR="192.168.1.182" # redis server address
+function prepareData(){
+	echo "===begin prepare data for test==="
+		#-t 20 \
+	#sudo numactl -C 16-23,40-47,64-71,88-95 -l memtier_benchmark -p 6379 \
+	#	-s $SERVERADDR \
+	#	-P memcache_text \
+	#	-t 20 \
+	#	-c 5 \
+	#	-n 8000000 \
+	#	-R \
+	#	--randomize \
+	#	--distinct-client-seed \
+	#	-d 24 \
+	#	--key-maximum=800000000 \
+	#	--key-minimum=1 \
+	#	--ratio=1:0 \
+	#	--key-pattern=P:P \
+	#	--pipeline=10000 \
+	#	--hide-histogram >> ${OUTPUTPATH}memcached_test_prepare_${CONFIG}_$(date +"%Y%m%d%H%M%S").log
+	sudo numactl -C 16-23,40-47,64-71,88-95 -l memtier_benchmark -s $SERVERADDR \
+		-P memcache_text \
+		--threads=128 \
+		--clients=4 \
+		--pipeline 32 \
+		--data-size=1024 \
+		--requests 184320 \
+		-p 6379 \
+		--key-pattern P:P \
+		--ratio=1:0 \
+		--key-minimum=1 \
+		--key-maximum=94371840 \
+		--key-prefix=memtier- \
+		--out-file=${OUTPUTPATH}memcached_test_prepare_${CONFIG}_$(date +"%Y%m%d%H%M%S").log
+	wait
+	sleep 1m
+	echo "===success prepare data for test==="
+}
+
+function testOne(){
+	echo "===begin test for testOne==="
+	#sudo numactl -C 16-23,40-47,64-71,88-95 -l memtier_benchmark -p 6379 \
+	#	-s $SERVERADDR \
+	#	-P memcache_text \
+	#	-t 20 \
+	#	-c 5 \
+	#	--test-time=1200 \
+	#	-R \
+	#	--randomize \
+	#	--distinct-client-seed \
+	#	-d 24 \
+	#	--key-maximum=800000000 \
+	#	--key-minimum=1 \
+	#	--ratio=0:1 \
+	#	--key-pattern=R:R \
+	#	-o ${OUTPUTPATH}memcached_test_result_${CONFIG}_${NUMBER}_$(date +"%Y%m%d%H%M%S").log \
+	#	--hide-histogram \
+	#	--pipeline=10000
+
+	sudo numactl -C 16-23,40-47,64-71,88-95 -l memtier_benchmark -s $SERVERADDR \
+	--test-time=600 \
+		-P memcache_text \
+		--threads=128 \
+		--clients=4 \
+		--pipeline 32 \
+		--data-size=1024 \
+		--distinct-client-seed \
+		-p 6379 \
+		--key-pattern R:R \
+		--ratio=0:1 \
+		--key-minimum=1 \
+		--key-maximum=94371840 \
+		--key-prefix=memtier- \
+		--out-file=${OUTPUTPATH}memcached_test_result_random_${CONFIG}_${NUMBER}_$(date +"%Y%m%d%H%M%S").log
+	wait
+	sleep 1m
+	echo "===Gauss82 is test end==="
+}
+
+function clearData(){
+	#clean up databases
+	echo "===Begin to clean databases==="
+	echo "flush_all" | nc -q 2 $SERVERADDR 6379
+	wait
+	sleep 1s
+	echo "===Databases are cleaned==="
+}
 
 function startRedis(){
 	# start memcached
-	sudo memcached -d -m 24000 -p 7000 -u root -l $SERVERADDR -c 60000
-	sudo memcached -d -m 24000 -p 7001 -u root -l $SERVERADDR -c 60000
-	sudo memcached -d -m 24000 -p 7002 -u root -l $SERVERADDR -c 60000
-	sudo memcached -d -m 24000 -p 7011 -u root -l $SERVERADDR -c 60000
-	sudo memcached -d -m 24000 -p 7012 -u root -l $SERVERADDR -c 60000
-	sudo memcached -d -m 24000 -p 7013 -u root -l $SERVERADDR -c 60000
-	sudo memcached -d -m 24000 -p 7014 -u root -l $SERVERADDR -c 60000
-	sudo memcached -d -m 24000 -p 7015 -u root -l $SERVERADDR -c 60000
+	memcached -d -m 102400 -p 6379 -u root -t 32 -l $SERVERADDR
 	wait 
 	ps auxf | grep memcached
 	sleep 1s
 	echo "SIGN: success start redis"
 }
 function startRedisWithPageReplication(){
-	sudo numactl -r 0-3 memcached -d -m 24000 -p 7000 -u root -l $SERVERADDR -c 60000
-        sudo numactl -r 0-3 memcached -d -m 24000 -p 7001 -u root -l $SERVERADDR -c 60000
-        sudo numactl -r 0-3 memcached -d -m 24000 -p 7002 -u root -l $SERVERADDR -c 60000
-        sudo numactl -r 0-3 memcached -d -m 24000 -p 7011 -u root -l $SERVERADDR -c 60000
-        sudo numactl -r 0-3 memcached -d -m 24000 -p 7012 -u root -l $SERVERADDR -c 60000
-        sudo numactl -r 0-3 memcached -d -m 24000 -p 7013 -u root -l $SERVERADDR -c 60000
-        sudo numactl -r 0-3 memcached -d -m 24000 -p 7014 -u root -l $SERVERADDR -c 60000
-        sudo numactl -r 0-3 memcached -d -m 24000 -p 7015 -u root -l $SERVERADDR -c 60000
+        sudo numactl -r 0-3 memcached -d -m 102400 -p 6379 -u root -t 32 -l $SERVERADDR
 	wait 
 	ps auxf | grep memcached
 	sleep 1s
@@ -135,11 +211,23 @@ function clearPgReplication(){
         echo "SIGN: success set pgtable replication strategy default, and set pgtable cache size zero"
 }
 
+function mainTest(){
+	# Test three times
+	for ((i=1; i<=3; i++))
+	do
+		NUMBER=${i}nd
+		testOne
+	done
+}
 #stopMySQL
-disableAutoNUMA
-disableSWAP
+#disableAutoNUMA
+#disableSWAP
 #setPagetableReplication
 #startRedisWithPageReplication
-startRedis
+#startRedis
+#prepareData
+testOne
+#mainTest
+#clearData
 #stopRedis
 #clearPgReplication
