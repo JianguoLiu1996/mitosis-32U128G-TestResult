@@ -3,28 +3,12 @@ NUMBER=1nd # test times label
 #CONFIG=FM_OFF # output file label
 CONFIG=F_OFF # output file label
 #OUTPUTPATH="./FM/" # output path
-OUTPUTPATH="./F-1st/" # output path
+OUTPUTPATH="./F-2nd/" # output path
 CURR_CONFIG=m # pagetable talbe replication cache set sign
 NR_PTCACHE_PAGES=131072 # ---1Gb per socket
 SERVERADDR="localhost" # redis server address
 function prepareData(){
 	echo "===begin prepare data for test==="
-	#memtier_benchmark -p 6379 \
-	#	-P memcache_text \
-	#	-t 20 \
-	#	-c 5 \
-	#	-n 8000000 \
-	#	-R \
-	#	--randomize \
-	#	--distinct-client-seed \
-	#	-d 24 \
-	#	--key-maximum=800000000 \
-	#	--key-minimum=1 \
-	#	--ratio=1:0 \
-	#	--key-pattern=P:P \
-	#	--pipeline=10000 \
-	#	--hide-histogram >> ${OUTPUTPATH}memcached_test_prepare_${CONFIG}_$(date +"%Y%m%d%H%M%S").log
-
 	memtier_benchmark -s $SERVERADDR \
 		-P memcache_text \
 		--threads=20 \
@@ -46,23 +30,6 @@ function prepareData(){
 
 function testOne(){
 	echo "===begin test for testOne==="
-	#memtier_benchmark -p 6379 \
-	#	-P memcache_text \
-	#	-t 20 \
-	#	-c 5 \
-	#	--test-time=1200 \
-	#	-R \
-	#	--randomize \
-	#	--distinct-client-seed \
-	#	-d 24 \
-	#	--key-maximum=800000000 \
-	#	--key-minimum=1 \
-	#	--ratio=0:1 \
-	#	--key-pattern=R:R \
-	#	-o ${OUTPUTPATH}memcached_test_result_${CONFIG}_${NUMBER}_$(date +"%Y%m%d%H%M%S").log \
-	#	--hide-histogram \
-	#	--pipeline=10000
-
 	memtier_benchmark -s $SERVERADDR \
 		--test-time=1200 \
 		-P memcache_text \
@@ -208,7 +175,7 @@ function clearPgReplication(){
 
 function mainTest(){
 	# Test three times
-	for ((i=1; i<=3; i++))
+	for ((i=1; i<=2; i++))
 	do
 		NUMBER=${i}nd
 		testOne
@@ -221,8 +188,8 @@ disableSWAP
 #startRedisWithPageReplication
 startRedis
 prepareData
-#mainTest
-testOne
+mainTest
+#testOne
 #clearData
 #stopRedis
 #clearPgReplication
