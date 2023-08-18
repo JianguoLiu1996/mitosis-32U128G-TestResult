@@ -121,10 +121,10 @@ function clearPgReplication(){
 }
 
 #stopMySQL
-disableAutoNUMA
-disableSWAP
+#disableAutoNUMA
+#disableSWAP
 #setPagetableReplication
 #startRedisWithPageReplication
-startRedis
-#stopRedis
+#startRedis
+stopRedis
 #clearPgReplication

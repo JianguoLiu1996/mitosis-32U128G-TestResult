@@ -3,26 +3,27 @@ NUMBER=1nd # test times label
 #CONFIG=FM_OFF # output file label
 CONFIG=F_OFF # output file label
 #OUTPUTPATH="./FM/" # output path
-OUTPUTPATH="./F-3nd/" # output path
+OUTPUTPATH="./F-1st/" # output path
 CURR_CONFIG=m # pagetable talbe replication cache set sign
-NR_PTCACHE_PAGES=131072 # ---1Gb per socket
+NR_PTCACHE_PAGES=262144 # ---1Gb per socket
 SERVERADDR="localhost" # redis server address
 function prepareData(){
 	echo "===begin prepare data for test==="
-	memtier_benchmark -s $SERVERADDR \
+	memtier_benchmark -p 6379 \
 		-P memcache_text \
-		--threads=20 \
-		--clients=5 \
-		--pipeline 32 \
-		--data-size=1024 \
-		--requests 1048576 \
-		-p 6379 \
-		--key-pattern P:P \
-		--ratio=1:0 \
+		-t 20 \
+		-c 5 \
+		-n 8000000 \
+		-R \
+		--randomize \
+		--distinct-client-seed \
+		-d 24 \
+		--key-maximum=800000000 \
 		--key-minimum=1 \
-		--key-maximum=104857600 \
-		--key-prefix=memtier- \
-		--out-file=${OUTPUTPATH}memcached_test_prepare_${CONFIG}_$(date +"%Y%m%d%H%M%S").log
+		--ratio=1:0 \
+		--key-pattern=P:P \
+		--pipeline=10000 \
+		--hide-histogram >> ${OUTPUTPATH}memcached_test_prepare_${CONFIG}_$(date +"%Y%m%d%H%M%S").log
 	wait
 	sleep 1m
 	echo "===success prepare data for test==="
@@ -30,24 +31,25 @@ function prepareData(){
 
 function testOne(){
 	echo "===begin test for testOne==="
-	memtier_benchmark -s $SERVERADDR \
-		--test-time=1200 \
+	memtier_benchmark -p 6379 \
 		-P memcache_text \
-		--threads=20 \
-		--clients=5 \
-		--pipeline 32 \
-		--data-size=1024 \
+		-t 20 \
+		-c 5 \
+		--test-time=1200 \
+		-R \
+		--randomize \
 		--distinct-client-seed \
-		-p 6379 \
-		--key-pattern S:S \
-		--ratio=0:1 \
+		-d 24 \
+		--key-maximum=800000000 \
 		--key-minimum=1 \
-		--key-maximum=104857600 \
-		--key-prefix=memtier- \
-		--out-file=${OUTPUTPATH}memcached_test_result_sequential_${CONFIG}_${NUMBER}_$(date +"%Y%m%d%H%M%S").log
+		--ratio=0:1 \
+		--key-pattern=R:R \
+		-o ${OUTPUTPATH}memcached_test_result_${CONFIG}_${NUMBER}_$(date +"%Y%m%d%H%M%S").log \
+		--hide-histogram \
+		--pipeline=10000
 	wait
 	sleep 1m
-	echo "===Sequential is test end==="
+	echo "===Gauss82 is test end==="
 }
 
 function clearData(){
@@ -62,7 +64,6 @@ function clearData(){
 function startRedis(){
 	# start memcached
 	sudo numactl -i 0-3 memcached -d -m 122880 -p 6379 -u root -t 64
-	#sudo memcached -d -m 122880 -p 6379 -u root -t 64
 	wait 
 	ps auxf | grep memcached
 	sleep 1s
@@ -175,21 +176,20 @@ function clearPgReplication(){
 
 function mainTest(){
 	# Test three times
-	for ((i=1; i<=2; i++))
+	for ((i=1; i<=4; i++))
 	do
 		NUMBER=${i}nd
 		testOne
 	done
 }
 #stopMySQL
-#disableAutoNUMA
-#disableSWAP
+disableAutoNUMA
+disableSWAP
 #setPagetableReplication
 #startRedisWithPageReplication
-#startRedis
-#prepareData
-#mainTest
-#testOne
+startRedis
+prepareData
+mainTest
 #clearData
-stopRedis
+#stopRedis
 #clearPgReplication

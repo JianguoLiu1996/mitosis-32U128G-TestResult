@@ -3,7 +3,7 @@ NUMBER=1nd # test times label
 #CONFIG=FM_OFF # output file label
 CONFIG=F_OFF # output file label
 #OUTPUTPATH="./FM/" # output path
-OUTPUTPATH="./F-3nd/" # output path
+OUTPUTPATH="./F-2nd-try/" # output path
 CURR_CONFIG=m # pagetable talbe replication cache set sign
 NR_PTCACHE_PAGES=131072 # ---1Gb per socket
 SERVERADDR="localhost" # redis server address
@@ -13,14 +13,14 @@ function prepareData(){
 		-P memcache_text \
 		--threads=20 \
 		--clients=5 \
-		--pipeline 32 \
-		--data-size=1024 \
-		--requests 1048576 \
+		--pipeline 10000 \
+		--data-size=24 \
+		--requests 8000000 \
 		-p 6379 \
 		--key-pattern P:P \
 		--ratio=1:0 \
 		--key-minimum=1 \
-		--key-maximum=104857600 \
+		--key-maximum=800000000 \
 		--key-prefix=memtier- \
 		--out-file=${OUTPUTPATH}memcached_test_prepare_${CONFIG}_$(date +"%Y%m%d%H%M%S").log
 	wait
@@ -31,23 +31,23 @@ function prepareData(){
 function testOne(){
 	echo "===begin test for testOne==="
 	memtier_benchmark -s $SERVERADDR \
-		--test-time=1200 \
 		-P memcache_text \
 		--threads=20 \
 		--clients=5 \
-		--pipeline 32 \
-		--data-size=1024 \
+		--pipeline 64 \
+		--data-size=512 \
+		--requests 10000000 \
 		--distinct-client-seed \
 		-p 6379 \
-		--key-pattern S:S \
+		--key-pattern R:R \
 		--ratio=0:1 \
 		--key-minimum=1 \
-		--key-maximum=104857600 \
+		--key-maximum=188743700 \
 		--key-prefix=memtier- \
-		--out-file=${OUTPUTPATH}memcached_test_result_sequential_${CONFIG}_${NUMBER}_$(date +"%Y%m%d%H%M%S").log
+		--out-file=${OUTPUTPATH}memcached_test_result_random_${CONFIG}_${NUMBER}_$(date +"%Y%m%d%H%M%S").log
 	wait
 	sleep 1m
-	echo "===Sequential is test end==="
+	echo "===Gauss82 is test end==="
 }
 
 function clearData(){
@@ -61,15 +61,14 @@ function clearData(){
 
 function startRedis(){
 	# start memcached
-	sudo numactl -i 0-3 memcached -d -m 122880 -p 6379 -u root -t 64
-	#sudo memcached -d -m 122880 -p 6379 -u root -t 64
+	sudo memcached -d -m 122880 -p 6379 -u root -t 64
 	wait 
 	ps auxf | grep memcached
 	sleep 1s
 	echo "SIGN: success start redis"
 }
 function startRedisWithPageReplication(){
-        sudo numactl -i 0-3 -r 0-3 memcached -d -m 122880 -p 6379 -u root -t 64
+        sudo numactl -r 0-3 memcached -d -m 122880 -p 6379 -u root -t 64
 	wait 
 	ps auxf | grep memcached
 	sleep 1s
