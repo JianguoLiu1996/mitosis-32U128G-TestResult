@@ -197,9 +197,9 @@ disableSWAP
 disableTHP
 #setPagetableReplication
 #startRedisWithPageReplication
-startRedis
-prepareData
-mainTest
+#startRedis
+#prepareData
+#mainTest
 #clearData
 #stopRedis
 #clearPgReplication
