@@ -191,15 +191,15 @@ function mainTest(){
 	done
 	sleep 1m
 }
-#stopMySQL
-disableAutoNUMA
-disableSWAP
-disableTHP
-setPagetableReplication
+##stopMySQL
+#disableAutoNUMA
+#disableSWAP
+#disableTHP
+#setPagetableReplication
 startRedisWithPageReplication
-#startRedis
-prepareData
-mainTest
-#clearData
-stopRedis
-clearPgReplication
+##startRedis
+#prepareData
+#mainTest
+##clearData
+#stopRedis
+#clearPgReplication
