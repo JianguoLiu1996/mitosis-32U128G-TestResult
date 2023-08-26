@@ -1,0 +1,9 @@
+SIGN: success disable swap.
+SIGN:success disable Auto NUMA
+SIGN: stat one test.
+SIGN: test one end.
+SIGN: stat one test.
+SIGN: test one end.
+SIGN: stat one test.
+SIGN: test one end.
+Script run time is: 11026 (s)
