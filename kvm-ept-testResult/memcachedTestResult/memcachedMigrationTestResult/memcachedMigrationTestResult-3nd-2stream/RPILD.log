@@ -1,0 +1,152 @@
+**************************
+***pgtablre test***
+**************************
+SIGN:success disable Auto NUMA
+current thp config:
+always [madvise] never
+success set /sys/kernel/mm/transparent_hugepage/enabled never
+always madvise [never]
+memcache run round 1......
+***************memcache : RPILD***************
+qu : config is RPILD
+set page-table to node:
+-3
+CMD_PREFIX=/home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/bin/numactl -m 3 -c 3 
+memcached pid is 1953
+DATA_LOAD is -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000 , BENCH_ARGS is -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+/home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/bin/numactl -m 2 -c 2 memtier_benchmark -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000
+load data......
+/home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/bin/numactl -m 2 -c 2 memtier_benchmark -o memcache-RPILD-1.log -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+begin read......
+first benchmark : 2003
+Interference_PID_1 : 2004
+Interference_PID_2 : 2005
+[0mWaiting for benchmark to be done
+Execution Time (seconds): 1459
+memcache : RPILD completed.
+start clean ......
+root      1914  0.0  0.0  13300 11340 pts/0    S    12:47   0:00 bash /home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/scripts/run_hwmigration_one.sh memcache-RPILD-1 240000000 24 RPILD memcache 900
+root      1953  754 22.5 32185920 29633316 ?   Ssl  12:47 183:18 memcached -d -m 32768 -p 6379 -u root -t 8
+root      2075  0.0  0.0   4372   592 pts/0    S    13:11   0:00 grep memcached
+wait  20s ......
+/home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/scripts/run_hwmigration_one.sh: line 317:  2004 Terminated              $NUMACTL -c $INT_NODE -m $INT_NODE $INT_BIN > /dev/null 2>&1
+/home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/scripts/run_hwmigration_one.sh: line 317:  2005 Terminated              $NUMACTL -c 1 -m 1 $INT_BIN > /dev/null 2>&1
+root      1914  0.0  0.0  13300 11340 pts/0    S    12:47   0:00 bash /home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/scripts/run_hwmigration_one.sh memcache-RPILD-1 240000000 24 RPILD memcache 900
+root      2093  0.0  0.0   4372   664 pts/0    S    13:11   0:00 grep memcached
+available: 4 nodes (0-3)
+node 0 cpus: 0 1 2 3 4 5 6 7
+node 0 size: 32032 MB
+node 0 free: 31909 MB
+node 1 cpus: 8 9 10 11 12 13 14 15
+node 1 size: 32126 MB
+node 1 free: 32005 MB
+node 2 cpus: 16 17 18 19 20 21 22 23
+node 2 size: 32126 MB
+node 2 free: 32049 MB
+node 3 cpus: 24 25 26 27 28 29 30 31
+node 3 size: 31870 MB
+node 3 free: 31741 MB
+node distances:
+node   0   1   2   3 
+  0:  10  20  20  20 
+  1:  20  10  20  20 
+  2:  20  20  10  20 
+  3:  20  20  20  10 
+clean  end......
+memcache run round 2......
+***************memcache : RPILD***************
+qu : config is RPILD
+set page-table to node:
+-3
+CMD_PREFIX=/home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/bin/numactl -m 3 -c 3 
+memcached pid is 2129
+DATA_LOAD is -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000 , BENCH_ARGS is -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+/home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/bin/numactl -m 2 -c 2 memtier_benchmark -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000
+load data......
+/home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/bin/numactl -m 2 -c 2 memtier_benchmark -o memcache-RPILD-2.log -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+begin read......
+first benchmark : 2185
+Interference_PID_1 : 2186
+Interference_PID_2 : 2187
+[0mWaiting for benchmark to be done
+Execution Time (seconds): 1449
+memcache : RPILD completed.
+start clean ......
+root      2095  0.0  0.0  13300 11344 pts/0    S    13:11   0:00 bash /home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/scripts/run_hwmigration_one.sh memcache-RPILD-2 240000000 24 RPILD memcache 900
+root      2129  762 22.2 32202368 29226224 ?   Ssl  13:11 184:01 memcached -d -m 32768 -p 6379 -u root -t 8
+root      2292  0.0  0.0   4372   588 pts/0    S    13:35   0:00 grep memcached
+wait  20s ......
+/home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/scripts/run_hwmigration_one.sh: line 317:  2186 Terminated              $NUMACTL -c $INT_NODE -m $INT_NODE $INT_BIN > /dev/null 2>&1
+/home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/scripts/run_hwmigration_one.sh: line 317:  2187 Terminated              $NUMACTL -c 1 -m 1 $INT_BIN > /dev/null 2>&1
+root      2095  0.0  0.0  13300 11344 pts/0    S    13:11   0:00 bash /home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/scripts/run_hwmigration_one.sh memcache-RPILD-2 240000000 24 RPILD memcache 900
+root      2304  0.0  0.0   4372   640 pts/0    S    13:36   0:00 grep memcached
+available: 4 nodes (0-3)
+node 0 cpus: 0 1 2 3 4 5 6 7
+node 0 size: 32032 MB
+node 0 free: 31908 MB
+node 1 cpus: 8 9 10 11 12 13 14 15
+node 1 size: 32126 MB
+node 1 free: 32007 MB
+node 2 cpus: 16 17 18 19 20 21 22 23
+node 2 size: 32126 MB
+node 2 free: 32044 MB
+node 3 cpus: 24 25 26 27 28 29 30 31
+node 3 size: 31870 MB
+node 3 free: 31737 MB
+node distances:
+node   0   1   2   3 
+  0:  10  20  20  20 
+  1:  20  10  20  20 
+  2:  20  20  10  20 
+  3:  20  20  20  10 
+clean  end......
+memcache run round 3......
+***************memcache : RPILD***************
+qu : config is RPILD
+set page-table to node:
+-3
+CMD_PREFIX=/home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/bin/numactl -m 3 -c 3 
+memcached pid is 2340
+DATA_LOAD is -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000 , BENCH_ARGS is -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+/home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/bin/numactl -m 2 -c 2 memtier_benchmark -p 6379 -P memcache_text -t 20 -c 5 -n 2400000 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=1:0 --key-pattern=P:P --pipeline=10000
+load data......
+/home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/bin/numactl -m 2 -c 2 memtier_benchmark -o memcache-RPILD-3.log -p 6379 -P memcache_text -t 20 -c 5 -R --randomize --distinct-client-seed -d 24 --key-maximum=240000000 --key-minimum=1 --ratio=0:1 --key-pattern=R:R --test-time=900 --pipeline=10000
+begin read......
+first benchmark : 2388
+Interference_PID_1 : 2389
+Interference_PID_2 : 2390
+[0mWaiting for benchmark to be done
+Execution Time (seconds): 1444
+memcache : RPILD completed.
+start clean ......
+root      2306  0.0  0.0  13300 11220 pts/0    S    13:36   0:00 bash /home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/scripts/run_hwmigration_one.sh memcache-RPILD-3 240000000 24 RPILD memcache 900
+root      2340  765 22.2 32139920 29211868 ?   Ssl  13:36 184:15 memcached -d -m 32768 -p 6379 -u root -t 8
+root      2435  0.0  0.0   4372   588 pts/0    S    14:00   0:00 grep memcached
+wait  20s ......
+/home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/scripts/run_hwmigration_one.sh: line 317:  2389 Terminated              $NUMACTL -c $INT_NODE -m $INT_NODE $INT_BIN > /dev/null 2>&1
+/home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/scripts/run_hwmigration_one.sh: line 317:  2390 Terminated              $NUMACTL -c 1 -m 1 $INT_BIN > /dev/null 2>&1
+root      2306  0.0  0.0  13300 11220 pts/0    S    13:36   0:00 bash /home/jianguoliu/mitosis-32U128G-TestResult/kvm-ept-testResult/memcachedTestResult/memcachedMigrationTestResult/wasp/scripts/run_hwmigration_one.sh memcache-RPILD-3 240000000 24 RPILD memcache 900
+root      2443  0.0  0.0   4372   612 pts/0    S    14:00   0:00 grep memcached
+available: 4 nodes (0-3)
+node 0 cpus: 0 1 2 3 4 5 6 7
+node 0 size: 32032 MB
+node 0 free: 31908 MB
+node 1 cpus: 8 9 10 11 12 13 14 15
+node 1 size: 32126 MB
+node 1 free: 32010 MB
+node 2 cpus: 16 17 18 19 20 21 22 23
+node 2 size: 32126 MB
+node 2 free: 32031 MB
+node 3 cpus: 24 25 26 27 28 29 30 31
+node 3 size: 31870 MB
+node 3 free: 31751 MB
+node distances:
+node   0   1   2   3 
+  0:  10  20  20  20 
+  1:  20  10  20  20 
+  2:  20  20  10  20 
+  3:  20  20  20  10 
+clean  end......
+**************************
+*** test  end ***
+**************************

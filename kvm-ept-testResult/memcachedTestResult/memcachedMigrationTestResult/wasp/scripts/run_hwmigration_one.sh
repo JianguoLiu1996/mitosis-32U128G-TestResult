@@ -301,8 +301,11 @@ launch_interference()
         Interference_PID=0
 	if [[ $CURR_CONFIG == "LPRDI" ]] || [[ $CURR_CONFIG == "RPILD" ]] || [[ $CURR_CONFIG == "RPIRDI" ]]; then
 		$NUMACTL -c $INT_NODE -m $INT_NODE $INT_BIN > /dev/null 2>&1 &
-                Interference_PID=$!
-	        echo "Interference_PID : $Interference_PID"
+                Interference_PID_1=$!
+		$NUMACTL -c 1 -m 1 $INT_BIN > /dev/null 2>&1 & # ept test change
+                Interference_PID_2=$!
+	        echo "Interference_PID_1 : $Interference_PID_1"
+	        echo "Interference_PID_2 : $Interference_PID_2"
                 if [ $? -ne 0 ]; then
 			echo "Failure launching interference."
 			exit
@@ -334,7 +337,7 @@ launch_benchmark_config()
     REDIS_PID=0
     if [[ $BENCHMARK == "memcache" ]];then
         # sudo $CMD_PREFIX memcached -d -m 62768 -p 6379 -t 24 -u root
-        sudo $CMD_PREFIX memcached -d -m 32768 -p 6379 -u root
+        sudo $CMD_PREFIX memcached -d -m 32768 -p 6379 -u root -t 8
         #REDIS_PID=$(ps aux | grep 'memcached' | grep -v grep | tr -s ' '| cut -d ' ' -f 2)
         REDIS_PID=$(ps aux | grep 'memcached' | grep -v grep | grep -v bash | tr -s ' '| cut -d ' ' -f 2)
 	echo "memcached pid is $REDIS_PID"
@@ -373,7 +376,7 @@ launch_benchmark_config()
 	
         CMD_PREFIX=$NUMACTL
         #CMD_PREFIX+=" -m $DATA_NODE -c $CPU_NODE "
-        CMD_PREFIX+=" -m 1 -c 1 "
+        CMD_PREFIX+=" -m 2 -c 2 "
 	LAUNCH_CMD="$CMD_PREFIX $BENCHPATH  $DATA_LOAD"
 #     LAUNCH_CMD="$BENCHPATH  $DATA_LOAD"
 	echo $LAUNCH_CMD #>> $OUTFILE

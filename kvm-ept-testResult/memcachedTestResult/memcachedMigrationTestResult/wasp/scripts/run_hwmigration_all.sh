@@ -27,8 +27,28 @@ CONFIGS="RPILD" # It's very useful, save time.
 #CONFIGS="RPILD"
 # CONFIGS="RPILDM"
 # CONFIGS="LPLD RPILD"
+function disableTHP(){
+        echo "current thp config:"
+        cat /sys/kernel/mm/transparent_hugepage/enabled
 
+        sudo echo never > /sys/kernel/mm/transparent_hugepage/enabled
+
+        echo "success set /sys/kernel/mm/transparent_hugepage/enabled never"
+        cat /sys/kernel/mm/transparent_hugepage/enabled
+}
+function disableAutoNUMA(){
+        # disable auto numa
+        echo 0 | sudo tee /proc/sys/kernel/numa_balancing > /dev/null
+        if [ $? -ne 0 ]; then
+                echo "ERROR setting AutoNUMA to: 0"
+                exit
+        fi
+        echo "SIGN:success disable Auto NUMA"
+}
+disableAutoNUMA
+disableTHP
 sudo swapoff -a # disable swap
+
 for round in $(seq 1 3)
 #for round in $(seq 1)
 do
